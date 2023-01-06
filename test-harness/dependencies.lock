@@ -51,6 +51,9 @@
         "com.google.protobuf:protobuf-java": {
             "locked": "3.13.0"
         },
+        "com.netflix.conductor:conductor-amqp": {
+            "project": true
+        },
         "com.netflix.conductor:conductor-cassandra-persistence": {
             "project": true
         },
@@ -63,7 +66,7 @@
         "com.netflix.conductor:conductor-core": {
             "project": true
         },
-        "com.netflix.conductor:conductor-es6-persistence": {
+        "com.netflix.conductor:conductor-es7-persistence": {
             "project": true
         },
         "com.netflix.conductor:conductor-grpc-client": {
@@ -118,10 +121,10 @@
             "locked": "2.5.13"
         },
         "org.elasticsearch.client:elasticsearch-rest-client": {
-            "locked": "6.8.12"
+            "locked": "7.6.2"
         },
         "org.elasticsearch.client:elasticsearch-rest-high-level-client": {
-            "locked": "6.8.12"
+            "locked": "7.6.2"
         },
         "org.glassfish.jersey.core:jersey-common": {
             "locked": "2.22.2"
@@ -188,14 +191,16 @@
         "com.fasterxml.jackson.core:jackson-core": {
             "firstLevelTransitive": [
                 "com.netflix.conductor:conductor-common",
-                "com.netflix.conductor:conductor-core"
+                "com.netflix.conductor:conductor-core",
+                "com.netflix.conductor:conductor-es7-persistence"
             ],
             "locked": "2.13.3"
         },
         "com.fasterxml.jackson.core:jackson-databind": {
             "firstLevelTransitive": [
                 "com.netflix.conductor:conductor-common",
-                "com.netflix.conductor:conductor-core"
+                "com.netflix.conductor:conductor-core",
+                "com.netflix.conductor:conductor-es7-persistence"
             ],
             "locked": "2.13.3"
         },
@@ -226,8 +231,9 @@
         },
         "com.google.guava:guava": {
             "firstLevelTransitive": [
+                "com.netflix.conductor:conductor-amqp",
                 "com.netflix.conductor:conductor-awssqs-event-queue",
-                "com.netflix.conductor:conductor-es6-persistence",
+                "com.netflix.conductor:conductor-es7-persistence",
                 "com.netflix.conductor:conductor-grpc-client"
             ],
             "locked": "30.0-jre"
@@ -246,6 +252,12 @@
                 "com.netflix.conductor:conductor-core"
             ],
             "locked": "2.7.0"
+        },
+        "com.netflix.conductor:conductor-amqp": {
+            "firstLevelTransitive": [
+                "com.netflix.conductor:conductor-server"
+            ],
+            "project": true
         },
         "com.netflix.conductor:conductor-annotations": {
             "firstLevelTransitive": [
@@ -276,12 +288,13 @@
         },
         "com.netflix.conductor:conductor-common": {
             "firstLevelTransitive": [
+                "com.netflix.conductor:conductor-amqp",
                 "com.netflix.conductor:conductor-awss3-storage",
                 "com.netflix.conductor:conductor-awssqs-event-queue",
                 "com.netflix.conductor:conductor-cassandra-persistence",
                 "com.netflix.conductor:conductor-client",
                 "com.netflix.conductor:conductor-core",
-                "com.netflix.conductor:conductor-es6-persistence",
+                "com.netflix.conductor:conductor-es7-persistence",
                 "com.netflix.conductor:conductor-grpc",
                 "com.netflix.conductor:conductor-grpc-client",
                 "com.netflix.conductor:conductor-grpc-server",
@@ -295,10 +308,11 @@
         },
         "com.netflix.conductor:conductor-core": {
             "firstLevelTransitive": [
+                "com.netflix.conductor:conductor-amqp",
                 "com.netflix.conductor:conductor-awss3-storage",
                 "com.netflix.conductor:conductor-awssqs-event-queue",
                 "com.netflix.conductor:conductor-cassandra-persistence",
-                "com.netflix.conductor:conductor-es6-persistence",
+                "com.netflix.conductor:conductor-es7-persistence",
                 "com.netflix.conductor:conductor-grpc-server",
                 "com.netflix.conductor:conductor-http-task",
                 "com.netflix.conductor:conductor-json-jq-task",
@@ -310,7 +324,7 @@
             ],
             "project": true
         },
-        "com.netflix.conductor:conductor-es6-persistence": {
+        "com.netflix.conductor:conductor-es7-persistence": {
             "firstLevelTransitive": [
                 "com.netflix.conductor:conductor-server"
             ],
@@ -396,6 +410,12 @@
             ],
             "locked": "0.122.0"
         },
+        "com.rabbitmq:amqp-client": {
+            "firstLevelTransitive": [
+                "com.netflix.conductor:conductor-amqp"
+            ],
+            "locked": "5.14.2"
+        },
         "com.spotify:completable-futures": {
             "firstLevelTransitive": [
                 "com.netflix.conductor:conductor-core"
@@ -418,7 +438,7 @@
             "firstLevelTransitive": [
                 "com.netflix.conductor:conductor-client",
                 "com.netflix.conductor:conductor-core",
-                "com.netflix.conductor:conductor-es6-persistence"
+                "com.netflix.conductor:conductor-es7-persistence"
             ],
             "locked": "2.7"
         },
@@ -427,30 +447,31 @@
                 "com.netflix.conductor:conductor-grpc-client",
                 "com.netflix.conductor:conductor-grpc-server"
             ],
-            "locked": "1.50.0"
+            "locked": "1.51.1"
         },
         "io.grpc:grpc-protobuf": {
             "firstLevelTransitive": [
                 "com.netflix.conductor:conductor-grpc",
                 "com.netflix.conductor:conductor-grpc-client"
             ],
-            "locked": "1.50.0"
+            "locked": "1.51.1"
         },
         "io.grpc:grpc-services": {
             "firstLevelTransitive": [
                 "com.netflix.conductor:conductor-grpc-server"
             ],
-            "locked": "1.50.0"
+            "locked": "1.51.1"
         },
         "io.grpc:grpc-stub": {
             "firstLevelTransitive": [
                 "com.netflix.conductor:conductor-grpc",
                 "com.netflix.conductor:conductor-grpc-client"
             ],
-            "locked": "1.50.0"
+            "locked": "1.51.1"
         },
         "io.reactivex:rxjava": {
             "firstLevelTransitive": [
+                "com.netflix.conductor:conductor-amqp",
                 "com.netflix.conductor:conductor-awssqs-event-queue",
                 "com.netflix.conductor:conductor-core"
             ],
@@ -501,13 +522,14 @@
         },
         "org.apache.commons:commons-lang3": {
             "firstLevelTransitive": [
+                "com.netflix.conductor:conductor-amqp",
                 "com.netflix.conductor:conductor-awss3-storage",
                 "com.netflix.conductor:conductor-awssqs-event-queue",
                 "com.netflix.conductor:conductor-cassandra-persistence",
                 "com.netflix.conductor:conductor-client",
                 "com.netflix.conductor:conductor-common",
                 "com.netflix.conductor:conductor-core",
-                "com.netflix.conductor:conductor-es6-persistence",
+                "com.netflix.conductor:conductor-es7-persistence",
                 "com.netflix.conductor:conductor-grpc-client",
                 "com.netflix.conductor:conductor-grpc-server",
                 "com.netflix.conductor:conductor-redis-concurrency-limit",
@@ -517,6 +539,7 @@
         },
         "org.apache.logging.log4j:log4j-api": {
             "firstLevelTransitive": [
+                "com.netflix.conductor:conductor-amqp",
                 "com.netflix.conductor:conductor-annotations",
                 "com.netflix.conductor:conductor-awss3-storage",
                 "com.netflix.conductor:conductor-awssqs-event-queue",
@@ -524,7 +547,7 @@
                 "com.netflix.conductor:conductor-client",
                 "com.netflix.conductor:conductor-common",
                 "com.netflix.conductor:conductor-core",
-                "com.netflix.conductor:conductor-es6-persistence",
+                "com.netflix.conductor:conductor-es7-persistence",
                 "com.netflix.conductor:conductor-grpc",
                 "com.netflix.conductor:conductor-grpc-client",
                 "com.netflix.conductor:conductor-grpc-server",
@@ -540,6 +563,7 @@
         },
         "org.apache.logging.log4j:log4j-core": {
             "firstLevelTransitive": [
+                "com.netflix.conductor:conductor-amqp",
                 "com.netflix.conductor:conductor-annotations",
                 "com.netflix.conductor:conductor-awss3-storage",
                 "com.netflix.conductor:conductor-awssqs-event-queue",
@@ -547,7 +571,7 @@
                 "com.netflix.conductor:conductor-client",
                 "com.netflix.conductor:conductor-common",
                 "com.netflix.conductor:conductor-core",
-                "com.netflix.conductor:conductor-es6-persistence",
+                "com.netflix.conductor:conductor-es7-persistence",
                 "com.netflix.conductor:conductor-grpc",
                 "com.netflix.conductor:conductor-grpc-client",
                 "com.netflix.conductor:conductor-grpc-server",
@@ -563,6 +587,7 @@
         },
         "org.apache.logging.log4j:log4j-jul": {
             "firstLevelTransitive": [
+                "com.netflix.conductor:conductor-amqp",
                 "com.netflix.conductor:conductor-annotations",
                 "com.netflix.conductor:conductor-awss3-storage",
                 "com.netflix.conductor:conductor-awssqs-event-queue",
@@ -570,7 +595,7 @@
                 "com.netflix.conductor:conductor-client",
                 "com.netflix.conductor:conductor-common",
                 "com.netflix.conductor:conductor-core",
-                "com.netflix.conductor:conductor-es6-persistence",
+                "com.netflix.conductor:conductor-es7-persistence",
                 "com.netflix.conductor:conductor-grpc",
                 "com.netflix.conductor:conductor-grpc-client",
                 "com.netflix.conductor:conductor-grpc-server",
@@ -586,6 +611,7 @@
         },
         "org.apache.logging.log4j:log4j-slf4j-impl": {
             "firstLevelTransitive": [
+                "com.netflix.conductor:conductor-amqp",
                 "com.netflix.conductor:conductor-annotations",
                 "com.netflix.conductor:conductor-awss3-storage",
                 "com.netflix.conductor:conductor-awssqs-event-queue",
@@ -593,7 +619,7 @@
                 "com.netflix.conductor:conductor-client",
                 "com.netflix.conductor:conductor-common",
                 "com.netflix.conductor:conductor-core",
-                "com.netflix.conductor:conductor-es6-persistence",
+                "com.netflix.conductor:conductor-es7-persistence",
                 "com.netflix.conductor:conductor-grpc",
                 "com.netflix.conductor:conductor-grpc-client",
                 "com.netflix.conductor:conductor-grpc-server",
@@ -609,6 +635,7 @@
         },
         "org.apache.logging.log4j:log4j-web": {
             "firstLevelTransitive": [
+                "com.netflix.conductor:conductor-amqp",
                 "com.netflix.conductor:conductor-annotations",
                 "com.netflix.conductor:conductor-awss3-storage",
                 "com.netflix.conductor:conductor-awssqs-event-queue",
@@ -616,7 +643,7 @@
                 "com.netflix.conductor:conductor-client",
                 "com.netflix.conductor:conductor-common",
                 "com.netflix.conductor:conductor-core",
-                "com.netflix.conductor:conductor-es6-persistence",
+                "com.netflix.conductor:conductor-es7-persistence",
                 "com.netflix.conductor:conductor-grpc",
                 "com.netflix.conductor:conductor-grpc-client",
                 "com.netflix.conductor:conductor-grpc-server",
@@ -635,21 +662,15 @@
         },
         "org.elasticsearch.client:elasticsearch-rest-client": {
             "firstLevelTransitive": [
-                "com.netflix.conductor:conductor-es6-persistence"
+                "com.netflix.conductor:conductor-es7-persistence"
             ],
-            "locked": "6.8.12"
+            "locked": "7.6.2"
         },
         "org.elasticsearch.client:elasticsearch-rest-high-level-client": {
             "firstLevelTransitive": [
-                "com.netflix.conductor:conductor-es6-persistence"
+                "com.netflix.conductor:conductor-es7-persistence"
             ],
-            "locked": "6.8.12"
-        },
-        "org.elasticsearch.client:transport": {
-            "firstLevelTransitive": [
-                "com.netflix.conductor:conductor-es6-persistence"
-            ],
-            "locked": "6.8.12"
+            "locked": "7.6.2"
         },
         "org.glassfish.jaxb:jaxb-runtime": {
             "firstLevelTransitive": [
@@ -693,7 +714,7 @@
                 "com.netflix.conductor:conductor-rest",
                 "com.netflix.conductor:conductor-server"
             ],
-            "locked": "1.6.12"
+            "locked": "1.6.14"
         },
         "org.springframework.boot:spring-boot-starter": {
             "firstLevelTransitive": [

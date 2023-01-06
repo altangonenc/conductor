@@ -21,7 +21,7 @@ dependencies {
     implementation project(':conductor-core')
     implementation project(':conductor-redis-persistence')
     implementation project(':conductor-cassandra-persistence')
-    implementation project(':conductor-es6-persistence')
+    implementation project(':conductor-es7-persistence')
     implementation project(':conductor-grpc-server')
     implementation project(':conductor-redis-lock')
     implementation project(':conductor-redis-concurrency-limit')
@@ -29,6 +29,7 @@ dependencies {
     implementation project(':conductor-json-jq-task')
     implementation project(':conductor-awss3-storage')
     implementation project(':conductor-awssqs-event-queue')
+    implementation project(':conductor-amqp')
 
     implementation 'org.springframework.boot:spring-boot-starter'
     implementation 'org.springframework.boot:spring-boot-starter-validation'

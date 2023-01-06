@@ -7,12 +7,13 @@ dependencies {
     testImplementation project(':conductor-core')
     testImplementation project(':conductor-redis-persistence')
     testImplementation project(':conductor-cassandra-persistence')
-    testImplementation project(':conductor-es6-persistence')
+    testImplementation project(':conductor-es7-persistence')
     testImplementation project(':conductor-grpc-server')
     testImplementation project(':conductor-client')
     testImplementation project(':conductor-grpc-client')
     testImplementation project(':conductor-json-jq-task')
     testImplementation project(':conductor-http-task')
+    testImplementation project(':conductor-amqp')
 
     testImplementation "org.springframework.retry:spring-retry"
 

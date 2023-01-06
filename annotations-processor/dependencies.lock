@@ -6,7 +6,7 @@
     },
     "compileClasspath": {
         "com.github.jknack:handlebars": {
-            "locked": "4.3.0"
+            "locked": "4.3.1"
         },
         "com.google.guava:guava": {
             "locked": "31.1-jre"
@@ -81,7 +81,7 @@
     },
     "runtimeClasspath": {
         "com.github.jknack:handlebars": {
-            "locked": "4.3.0"
+            "locked": "4.3.1"
         },
         "com.google.guava:guava": {
             "locked": "31.1-jre"
@@ -131,7 +131,7 @@
     },
     "testCompileClasspath": {
         "com.github.jknack:handlebars": {
-            "locked": "4.3.0"
+            "locked": "4.3.1"
         },
         "com.google.guava:guava": {
             "locked": "31.1-jre"
@@ -178,7 +178,7 @@
     },
     "testRuntimeClasspath": {
         "com.github.jknack:handlebars": {
-            "locked": "4.3.0"
+            "locked": "4.3.1"
         },
         "com.google.guava:guava": {
             "locked": "31.1-jre"

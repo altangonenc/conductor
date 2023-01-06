@@ -9,7 +9,7 @@
             "firstLevelTransitive": [
                 "com.netflix.conductor:conductor-annotations-processor"
             ],
-            "locked": "4.3.0"
+            "locked": "4.3.1"
         },
         "com.google.guava:guava": {
             "firstLevelTransitive": [
@@ -118,7 +118,7 @@
             "locked": "2.17.1"
         },
         "org.springdoc:springdoc-openapi-ui": {
-            "locked": "1.6.12"
+            "locked": "1.6.14"
         },
         "org.springframework.boot:spring-boot-starter": {
             "locked": "2.7.3"

@@ -1,0 +1,26 @@
+
+dependencies {
+
+    implementation project(':conductor-common')
+    implementation project(':conductor-core')
+
+
+    compileOnly 'org.springframework.boot:spring-boot-starter'
+    compileOnly 'org.springframework.retry:spring-retry'
+
+    implementation "commons-io:commons-io:${revCommonsIo}"
+    implementation "org.apache.commons:commons-lang3"
+    implementation "com.google.guava:guava:${revGuava}"
+
+    implementation "com.fasterxml.jackson.core:jackson-databind"
+    implementation "com.fasterxml.jackson.core:jackson-core"
+
+    implementation "org.elasticsearch.client:elasticsearch-rest-client"
+    implementation "org.elasticsearch.client:elasticsearch-rest-high-level-client"
+
+    testImplementation "net.java.dev.jna:jna:5.7.0"
+    testImplementation "org.awaitility:awaitility:${revAwaitility}"
+    testImplementation "org.testcontainers:elasticsearch:${revTestContainer}"
+    testImplementation 'org.springframework.retry:spring-retry'
+
+}
