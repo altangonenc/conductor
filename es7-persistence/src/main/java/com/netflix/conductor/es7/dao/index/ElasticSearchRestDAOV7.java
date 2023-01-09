@@ -283,8 +283,20 @@ public class ElasticSearchRestDAOV7 extends ElasticSearchBaseDAO implements Inde
     }
 
     private String updateIndexName(String type) {
-        String indexName =
-                this.indexPrefix + "_" + type + "_" + SIMPLE_DATE_FORMAT.format(new Date());
+        // Rolled indexes are indices whose names are suffixed with today's
+        // date. When the date changes, a new index is generated from a
+        // template. Log, event, and message are the only 3 indices that get
+        // rolled. If we don't want an index to get rolled, we need to create
+        // it with a name that we can reconstruct after conductor-server
+        // restarts. Reusing the name of the index template as the name of
+        // the index (with the index prefix added) is the simplest way to do
+        // so.
+        final String indexName;
+        if (properties.isIndexRollEnabled()) {
+            indexName = this.indexPrefix + "_" + type + "_" + SIMPLE_DATE_FORMAT.format(new Date());
+        } else {
+            indexName = this.indexPrefix + "_" + type;
+        }
         try {
             addIndex(indexName);
             return indexName;

@@ -54,6 +54,8 @@ public class ElasticSearchProperties {
     @DurationUnit(ChronoUnit.SECONDS)
     private Duration asyncBufferFlushTimeout = Duration.ofSeconds(10);
 
+    private boolean indexRollEnabled = true;
+
     /** The number of shards that the index will be created with */
     private int indexShardCount = 5;
 
@@ -152,6 +154,14 @@ public class ElasticSearchProperties {
 
     public int getIndexReplicasCount() {
         return indexReplicasCount;
+    }
+
+    public boolean isIndexRollEnabled() {
+        return indexRollEnabled;
+    }
+
+    public void setIndexRollEnabled(boolean indexRollEnabled) {
+        this.indexRollEnabled = indexRollEnabled;
     }
 
     public void setIndexReplicasCount(int indexReplicasCount) {
