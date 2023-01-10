@@ -44,6 +44,9 @@
         "com.netflix.conductor:conductor-rest": {
             "project": true
         },
+        "com.netflix.conductor:conductor-workflow-event-listener": {
+            "project": true
+        },
         "org.apache.logging.log4j:log4j-api": {
             "locked": "2.17.1"
         },
@@ -158,6 +161,9 @@
             "locked": "2.7.0"
         },
         "com.netflix.conductor:conductor-amqp": {
+            "firstLevelTransitive": [
+                "com.netflix.conductor:conductor-workflow-event-listener"
+            ],
             "project": true
         },
         "com.netflix.conductor:conductor-annotations": {
@@ -189,7 +195,8 @@
                 "com.netflix.conductor:conductor-json-jq-task",
                 "com.netflix.conductor:conductor-redis-concurrency-limit",
                 "com.netflix.conductor:conductor-redis-persistence",
-                "com.netflix.conductor:conductor-rest"
+                "com.netflix.conductor:conductor-rest",
+                "com.netflix.conductor:conductor-workflow-event-listener"
             ],
             "project": true
         },
@@ -206,7 +213,8 @@
                 "com.netflix.conductor:conductor-redis-concurrency-limit",
                 "com.netflix.conductor:conductor-redis-lock",
                 "com.netflix.conductor:conductor-redis-persistence",
-                "com.netflix.conductor:conductor-rest"
+                "com.netflix.conductor:conductor-rest",
+                "com.netflix.conductor:conductor-workflow-event-listener"
             ],
             "project": true
         },
@@ -238,6 +246,9 @@
             "project": true
         },
         "com.netflix.conductor:conductor-rest": {
+            "project": true
+        },
+        "com.netflix.conductor:conductor-workflow-event-listener": {
             "project": true
         },
         "com.netflix.dyno-queues:dyno-queues-redis": {
@@ -384,7 +395,8 @@
                 "com.netflix.conductor:conductor-redis-concurrency-limit",
                 "com.netflix.conductor:conductor-redis-lock",
                 "com.netflix.conductor:conductor-redis-persistence",
-                "com.netflix.conductor:conductor-rest"
+                "com.netflix.conductor:conductor-rest",
+                "com.netflix.conductor:conductor-workflow-event-listener"
             ],
             "locked": "2.17.1"
         },
@@ -405,7 +417,8 @@
                 "com.netflix.conductor:conductor-redis-concurrency-limit",
                 "com.netflix.conductor:conductor-redis-lock",
                 "com.netflix.conductor:conductor-redis-persistence",
-                "com.netflix.conductor:conductor-rest"
+                "com.netflix.conductor:conductor-rest",
+                "com.netflix.conductor:conductor-workflow-event-listener"
             ],
             "locked": "2.17.1"
         },
@@ -426,7 +439,8 @@
                 "com.netflix.conductor:conductor-redis-concurrency-limit",
                 "com.netflix.conductor:conductor-redis-lock",
                 "com.netflix.conductor:conductor-redis-persistence",
-                "com.netflix.conductor:conductor-rest"
+                "com.netflix.conductor:conductor-rest",
+                "com.netflix.conductor:conductor-workflow-event-listener"
             ],
             "locked": "2.17.1"
         },
@@ -447,7 +461,8 @@
                 "com.netflix.conductor:conductor-redis-concurrency-limit",
                 "com.netflix.conductor:conductor-redis-lock",
                 "com.netflix.conductor:conductor-redis-persistence",
-                "com.netflix.conductor:conductor-rest"
+                "com.netflix.conductor:conductor-rest",
+                "com.netflix.conductor:conductor-workflow-event-listener"
             ],
             "locked": "2.17.1"
         },
@@ -468,7 +483,8 @@
                 "com.netflix.conductor:conductor-redis-concurrency-limit",
                 "com.netflix.conductor:conductor-redis-lock",
                 "com.netflix.conductor:conductor-redis-persistence",
-                "com.netflix.conductor:conductor-rest"
+                "com.netflix.conductor:conductor-rest",
+                "com.netflix.conductor:conductor-workflow-event-listener"
             ],
             "locked": "2.17.1"
         },
@@ -611,6 +627,9 @@
             "locked": "2.7.0"
         },
         "com.netflix.conductor:conductor-amqp": {
+            "firstLevelTransitive": [
+                "com.netflix.conductor:conductor-workflow-event-listener"
+            ],
             "project": true
         },
         "com.netflix.conductor:conductor-annotations": {
@@ -642,7 +661,8 @@
                 "com.netflix.conductor:conductor-json-jq-task",
                 "com.netflix.conductor:conductor-redis-concurrency-limit",
                 "com.netflix.conductor:conductor-redis-persistence",
-                "com.netflix.conductor:conductor-rest"
+                "com.netflix.conductor:conductor-rest",
+                "com.netflix.conductor:conductor-workflow-event-listener"
             ],
             "project": true
         },
@@ -659,7 +679,8 @@
                 "com.netflix.conductor:conductor-redis-concurrency-limit",
                 "com.netflix.conductor:conductor-redis-lock",
                 "com.netflix.conductor:conductor-redis-persistence",
-                "com.netflix.conductor:conductor-rest"
+                "com.netflix.conductor:conductor-rest",
+                "com.netflix.conductor:conductor-workflow-event-listener"
             ],
             "project": true
         },
@@ -691,6 +712,9 @@
             "project": true
         },
         "com.netflix.conductor:conductor-rest": {
+            "project": true
+        },
+        "com.netflix.conductor:conductor-workflow-event-listener": {
             "project": true
         },
         "com.netflix.dyno-queues:dyno-queues-redis": {
@@ -837,7 +861,8 @@
                 "com.netflix.conductor:conductor-redis-concurrency-limit",
                 "com.netflix.conductor:conductor-redis-lock",
                 "com.netflix.conductor:conductor-redis-persistence",
-                "com.netflix.conductor:conductor-rest"
+                "com.netflix.conductor:conductor-rest",
+                "com.netflix.conductor:conductor-workflow-event-listener"
             ],
             "locked": "2.17.1"
         },
@@ -858,7 +883,8 @@
                 "com.netflix.conductor:conductor-redis-concurrency-limit",
                 "com.netflix.conductor:conductor-redis-lock",
                 "com.netflix.conductor:conductor-redis-persistence",
-                "com.netflix.conductor:conductor-rest"
+                "com.netflix.conductor:conductor-rest",
+                "com.netflix.conductor:conductor-workflow-event-listener"
             ],
             "locked": "2.17.1"
         },
@@ -879,7 +905,8 @@
                 "com.netflix.conductor:conductor-redis-concurrency-limit",
                 "com.netflix.conductor:conductor-redis-lock",
                 "com.netflix.conductor:conductor-redis-persistence",
-                "com.netflix.conductor:conductor-rest"
+                "com.netflix.conductor:conductor-rest",
+                "com.netflix.conductor:conductor-workflow-event-listener"
             ],
             "locked": "2.17.1"
         },
@@ -900,7 +927,8 @@
                 "com.netflix.conductor:conductor-redis-concurrency-limit",
                 "com.netflix.conductor:conductor-redis-lock",
                 "com.netflix.conductor:conductor-redis-persistence",
-                "com.netflix.conductor:conductor-rest"
+                "com.netflix.conductor:conductor-rest",
+                "com.netflix.conductor:conductor-workflow-event-listener"
             ],
             "locked": "2.17.1"
         },
@@ -921,7 +949,8 @@
                 "com.netflix.conductor:conductor-redis-concurrency-limit",
                 "com.netflix.conductor:conductor-redis-lock",
                 "com.netflix.conductor:conductor-redis-persistence",
-                "com.netflix.conductor:conductor-rest"
+                "com.netflix.conductor:conductor-rest",
+                "com.netflix.conductor:conductor-workflow-event-listener"
             ],
             "locked": "2.17.1"
         },
@@ -1031,6 +1060,9 @@
             "project": true
         },
         "com.netflix.conductor:conductor-rest": {
+            "project": true
+        },
+        "com.netflix.conductor:conductor-workflow-event-listener": {
             "project": true
         },
         "io.grpc:grpc-protobuf": {
@@ -1165,6 +1197,9 @@
             "locked": "2.7.0"
         },
         "com.netflix.conductor:conductor-amqp": {
+            "firstLevelTransitive": [
+                "com.netflix.conductor:conductor-workflow-event-listener"
+            ],
             "project": true
         },
         "com.netflix.conductor:conductor-annotations": {
@@ -1196,7 +1231,8 @@
                 "com.netflix.conductor:conductor-json-jq-task",
                 "com.netflix.conductor:conductor-redis-concurrency-limit",
                 "com.netflix.conductor:conductor-redis-persistence",
-                "com.netflix.conductor:conductor-rest"
+                "com.netflix.conductor:conductor-rest",
+                "com.netflix.conductor:conductor-workflow-event-listener"
             ],
             "project": true
         },
@@ -1213,7 +1249,8 @@
                 "com.netflix.conductor:conductor-redis-concurrency-limit",
                 "com.netflix.conductor:conductor-redis-lock",
                 "com.netflix.conductor:conductor-redis-persistence",
-                "com.netflix.conductor:conductor-rest"
+                "com.netflix.conductor:conductor-rest",
+                "com.netflix.conductor:conductor-workflow-event-listener"
             ],
             "project": true
         },
@@ -1245,6 +1282,9 @@
             "project": true
         },
         "com.netflix.conductor:conductor-rest": {
+            "project": true
+        },
+        "com.netflix.conductor:conductor-workflow-event-listener": {
             "project": true
         },
         "com.netflix.dyno-queues:dyno-queues-redis": {
@@ -1397,7 +1437,8 @@
                 "com.netflix.conductor:conductor-redis-concurrency-limit",
                 "com.netflix.conductor:conductor-redis-lock",
                 "com.netflix.conductor:conductor-redis-persistence",
-                "com.netflix.conductor:conductor-rest"
+                "com.netflix.conductor:conductor-rest",
+                "com.netflix.conductor:conductor-workflow-event-listener"
             ],
             "locked": "2.17.1"
         },
@@ -1418,7 +1459,8 @@
                 "com.netflix.conductor:conductor-redis-concurrency-limit",
                 "com.netflix.conductor:conductor-redis-lock",
                 "com.netflix.conductor:conductor-redis-persistence",
-                "com.netflix.conductor:conductor-rest"
+                "com.netflix.conductor:conductor-rest",
+                "com.netflix.conductor:conductor-workflow-event-listener"
             ],
             "locked": "2.17.1"
         },
@@ -1439,7 +1481,8 @@
                 "com.netflix.conductor:conductor-redis-concurrency-limit",
                 "com.netflix.conductor:conductor-redis-lock",
                 "com.netflix.conductor:conductor-redis-persistence",
-                "com.netflix.conductor:conductor-rest"
+                "com.netflix.conductor:conductor-rest",
+                "com.netflix.conductor:conductor-workflow-event-listener"
             ],
             "locked": "2.17.1"
         },
@@ -1460,7 +1503,8 @@
                 "com.netflix.conductor:conductor-redis-concurrency-limit",
                 "com.netflix.conductor:conductor-redis-lock",
                 "com.netflix.conductor:conductor-redis-persistence",
-                "com.netflix.conductor:conductor-rest"
+                "com.netflix.conductor:conductor-rest",
+                "com.netflix.conductor:conductor-workflow-event-listener"
             ],
             "locked": "2.17.1"
         },
@@ -1481,7 +1525,8 @@
                 "com.netflix.conductor:conductor-redis-concurrency-limit",
                 "com.netflix.conductor:conductor-redis-lock",
                 "com.netflix.conductor:conductor-redis-persistence",
-                "com.netflix.conductor:conductor-rest"
+                "com.netflix.conductor:conductor-rest",
+                "com.netflix.conductor:conductor-workflow-event-listener"
             ],
             "locked": "2.17.1"
         },

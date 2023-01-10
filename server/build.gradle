@@ -30,6 +30,7 @@ dependencies {
     implementation project(':conductor-awss3-storage')
     implementation project(':conductor-awssqs-event-queue')
     implementation project(':conductor-amqp')
+    implementation project(':conductor-workflow-event-listener')
 
     implementation 'org.springframework.boot:spring-boot-starter'
     implementation 'org.springframework.boot:spring-boot-starter-validation'
