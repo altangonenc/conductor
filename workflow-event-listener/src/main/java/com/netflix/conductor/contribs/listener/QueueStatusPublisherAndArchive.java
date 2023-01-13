@@ -12,17 +12,17 @@
  */
 package com.netflix.conductor.contribs.listener;
 
-import com.netflix.conductor.core.dal.ExecutionDAOFacade;
-import com.netflix.conductor.metrics.Monitors;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.netflix.conductor.common.run.WorkflowSummary;
 import com.netflix.conductor.contribs.queue.amqp.AMQPObservableQueue;
+import com.netflix.conductor.core.dal.ExecutionDAOFacade;
 import com.netflix.conductor.core.events.EventQueues;
 import com.netflix.conductor.core.events.queue.Message;
 import com.netflix.conductor.core.listener.WorkflowStatusListener;
 import com.netflix.conductor.dao.QueueDAO;
+import com.netflix.conductor.metrics.Monitors;
 import com.netflix.conductor.model.WorkflowModel;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -39,15 +39,17 @@ public class QueueStatusPublisherAndArchive implements WorkflowStatusListener {
     private ExecutionDAOFacade executionDAOFacade;
     private ObjectMapper objectMapper;
 
-
-
-    public QueueStatusPublisherAndArchive(EventQueues eventQueues, ExecutionDAOFacade executionDAOFacade, ObjectMapper objectMapper) {
+    public QueueStatusPublisherAndArchive(
+            EventQueues eventQueues,
+            ExecutionDAOFacade executionDAOFacade,
+            ObjectMapper objectMapper) {
         this.eventQueues = eventQueues;
-        this.executionDAOFacade= executionDAOFacade;
+        this.executionDAOFacade = executionDAOFacade;
         this.objectMapper = objectMapper;
     }
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(QueueStatusPublisherAndArchive.class);
+    private static final Logger LOGGER =
+            LoggerFactory.getLogger(QueueStatusPublisherAndArchive.class);
     private static final String EXCHANGE_NAME = "workflow-status-listener";
     private static final String QUEUE_NAME = "amqp_exchange:" + EXCHANGE_NAME;
 
@@ -58,42 +60,49 @@ public class QueueStatusPublisherAndArchive implements WorkflowStatusListener {
     public void onWorkflowCompleted(WorkflowModel workflow) {
         AMQPObservableQueue queue = (AMQPObservableQueue) eventQueues.getQueue(QUEUE_NAME);
 
-        try{
-            LOGGER.info("Publishing callback of workflow {} on completion", workflow.getWorkflowId());
+        try {
+            LOGGER.info(
+                    "Publishing callback of workflow {} on completion", workflow.getWorkflowId());
             queue.publishMessage(workflowToMessage(workflow), EXCHANGE_NAME, COMPLETED_ROUTING_KEY);
         } catch (Exception e) {
-            LOGGER.error("Error when publishing callback of workflow {} on completion",workflow.getWorkflowId());
+            LOGGER.error(
+                    "Error when publishing callback of workflow {} on completion",
+                    workflow.getWorkflowId());
         }
 
-        try{
+        try {
             LOGGER.info("Archiving workflow {} on completion ", workflow.getWorkflowId());
             this.executionDAOFacade.removeWorkflow(workflow.getWorkflowId(), true);
             Monitors.recordWorkflowArchived(workflow.getWorkflowName(), workflow.getStatus());
         } catch (Exception e) {
-            LOGGER.error("Error when archiving workflow {} on completion ", workflow.getWorkflowId());
+            LOGGER.error(
+                    "Error when archiving workflow {} on completion ", workflow.getWorkflowId());
         }
-
     }
 
     @Override
     public void onWorkflowTerminated(WorkflowModel workflow) {
         AMQPObservableQueue queue = (AMQPObservableQueue) eventQueues.getQueue(QUEUE_NAME);
 
-        try{
-            LOGGER.info("Publishing callback of workflow {} on termination", workflow.getWorkflowId());
-            queue.publishMessage(workflowToMessage(workflow), EXCHANGE_NAME, TERMINATED_ROUTING_KEY);
+        try {
+            LOGGER.info(
+                    "Publishing callback of workflow {} on termination", workflow.getWorkflowId());
+            queue.publishMessage(
+                    workflowToMessage(workflow), EXCHANGE_NAME, TERMINATED_ROUTING_KEY);
         } catch (Exception e) {
-            LOGGER.error("Error when publishing callback of workflow {} on termination", workflow.getWorkflowId());
+            LOGGER.error(
+                    "Error when publishing callback of workflow {} on termination",
+                    workflow.getWorkflowId());
         }
 
-        try{
+        try {
             LOGGER.info("Archiving workflow {} on completion ", workflow.getWorkflowId());
             this.executionDAOFacade.removeWorkflow(workflow.getWorkflowId(), true);
             Monitors.recordWorkflowArchived(workflow.getWorkflowName(), workflow.getStatus());
         } catch (Exception e) {
-            LOGGER.error("Error when archiving workflow {} on completion ", workflow.getWorkflowId());
+            LOGGER.error(
+                    "Error when archiving workflow {} on completion ", workflow.getWorkflowId());
         }
-
     }
 
     private Message workflowToMessage(WorkflowModel workflowModel) {

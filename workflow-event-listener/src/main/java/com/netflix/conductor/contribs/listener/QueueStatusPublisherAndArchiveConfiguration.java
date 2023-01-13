@@ -12,11 +12,11 @@
  */
 package com.netflix.conductor.contribs.listener;
 
-import com.netflix.conductor.core.dal.ExecutionDAOFacade;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import com.netflix.conductor.core.dal.ExecutionDAOFacade;
 import com.netflix.conductor.core.events.EventQueues;
 import com.netflix.conductor.core.listener.WorkflowStatusListener;
 
@@ -28,7 +28,9 @@ public class QueueStatusPublisherAndArchiveConfiguration {
 
     @Bean
     public WorkflowStatusListener getWorkflowStatusListener(
-            EventQueues eventQueues ,ExecutionDAOFacade executionDAOFacade, ObjectMapper objectMapper) {
-        return new QueueStatusPublisherAndArchive(eventQueues,executionDAOFacade, objectMapper);
+            EventQueues eventQueues,
+            ExecutionDAOFacade executionDAOFacade,
+            ObjectMapper objectMapper) {
+        return new QueueStatusPublisherAndArchive(eventQueues, executionDAOFacade, objectMapper);
     }
 }
