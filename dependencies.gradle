@@ -22,6 +22,7 @@ ext {
     revCassandra = '3.10.2'
     revCassandraUnit = '3.11.2.0'
     revCommonsIo = '2.7'
+    revDisruptor = '3.3.0'
     revDynoQueues = '2.0.20'
     revElasticSearch7 = '7.6.2'
     revAmqpClient = '5.13.0'
