@@ -24,6 +24,10 @@
     </Appenders>
 
     <Loggers>
+        <!-- Disable logging of "processUnacks() will NOT be atomic" logs -->
+        <logger name="com.netflix.dyno.queues.redis.RedisDynoQueue" level="WARN">
+            <AppenderRef ref="CONSOLE" />
+        </logger>
         <Root level="INFO">
             <AppenderRef ref="CONSOLE" />
         </Root>
