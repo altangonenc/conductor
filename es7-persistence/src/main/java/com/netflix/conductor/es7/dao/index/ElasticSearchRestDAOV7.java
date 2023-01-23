@@ -1055,7 +1055,6 @@ public class ElasticSearchRestDAOV7 extends ElasticSearchBaseDAO implements Inde
 
         // Generate the actual request to send to ES.
         SearchRequest searchRequest = new SearchRequest(indexName);
-        searchRequest.types(docType);
         searchRequest.source(searchSourceBuilder);
 
         SearchResponse response = elasticSearchClient.search(searchRequest, RequestOptions.DEFAULT);
